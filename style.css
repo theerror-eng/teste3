@@ -1,0 +1,484 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+:target {
+  scroll-margin-top: 130px; /* Altura do cabeçalho fixo */
+}
+body{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  min-height:100vh;
+  background: #000;
+}
+.mae{
+  display: none;
+	animation: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	transition-delay: 6s;
+	transition: all 70s;
+	flex-direction: column;
+}
+.welcome{
+  position: relative;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.welcome h1{
+  font-family: Monospace;
+  width:25ch;
+  border-right: 2px solid white;
+  font-size: 25px;
+  color: #ccc;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: animaTexto steps(25) 2s,animaMarcador 0.5s infinite linear;
+}
+@keyframes animaMarcador{
+  50%{
+    border-right: transparent;
+  }
+}
+@keyframes animaTexto{
+    0%{
+    width:0;
+  }
+}
+header{
+  display: flex;
+  flex-direction: column;
+  position: sticky; 
+  top: 0;
+  z-index: 5;
+  background: #111;
+}
+header h1{
+ text-align:center;
+ color:white;
+ margin-bottom:30px;
+ text-transform:uppercase;
+}
+nav ul{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+}
+nav li{
+  margin-bottom: 20px;
+}
+a{
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}
+#borda{
+  height: 3px;
+  width: 100%;
+  background: white;
+}
+.content{
+  position: relative;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:250px ;
+  height: 250px;
+  text-align: left;
+  color: white;
+  margin-left: 15px;
+}
+.content h1{
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.content .btn{
+  position: relative;
+  margin-top: 10px;
+  width: 100px;
+  height: 45px;
+  background: #1a1a1f;
+  color: white;
+  border: none;
+}
+.content .btn::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  border-top:2px solid white;
+  border-right:2px solid white;
+  animation: cima-direito 4s infinite alternate;
+  transition: border 10s;
+}
+@keyframes cima-direito{
+  0%{
+   width: 0;
+   height: 0;
+  }
+  25%{
+    width: 100px;
+   height: 0;
+  }
+  50%{
+   width: 100px;
+   height: 42px;
+  }
+  100%{
+    width: 100px;
+    height: 42px;
+  }
+}
+.content .btn::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  border-bottom:2px solid white;
+  border-left:2px solid white;
+  animation: baixo-esquerdo 4s infinite alternate;
+  transition: border 10s;
+}
+@keyframes baixo-esquerdo{
+  0%{
+    width: 0;
+   height: 0;
+   opacity: 0;
+  }
+  50%{
+    width: 0;
+   height: 0;
+   opacity: 0;
+  }
+  50.1%{
+    width: 0;
+   height: 0;
+   opacity: 1;
+  }
+  75%{
+    width: 100px;
+   height: 0;
+   opacity: 1;
+  }
+  100%{
+    width: 100px;
+   height: 42px;
+   opacity: 1;
+  }
+}
+.content .btn:hover{
+  color: #1a1a1f;
+  background: white;
+  box-shadow: 0 0 5px white,0 0 25px white,0 0 50px white,0 0 200px white;
+  z-index: 1;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+.falsebox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+.caixas{
+  display: none;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 1px 0;
+  flex-wrap: wrap;
+}
+.card{
+  display: flex;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  max-width: 100%;
+  margin-bottom:50px ;
+  margin-left:20px;
+  margin-right: 20px;
+  width: 300px; 
+  height: 510px;
+  background:transparent;
+}
+.card::before{
+  content: "";
+  position: absolute;
+  height: 0;
+  top: 0;
+  left: 0;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+  animation: cimadireito 3s 1;
+}
+@keyframes cimadireito{
+  0%{
+   width: 0;
+   height: 0;
+  }
+  25%{
+    width: 300px;
+   height: 0;
+  }
+  50%{
+   width: 300px;
+   height: 508px;
+  }
+  100%{
+    width: 300px;
+    height: 508px;
+}
+}
+.card::after{
+  content: "";
+  position:absolute;
+  bottom: 0;
+  right: 0;
+  border-bottom:3px solid white;
+  border-left: 3px solid white;
+  animation: baixoesquerdo 3s 1;
+  transition: all 20s;
+}
+@keyframes baixoesquerdo{
+  0%{
+    width: 0;
+   height: 0;
+   opacity: 0;
+  }
+  50%{
+    width: 0;
+   height: 0;
+   opacity: 0;
+  }
+  50.1%{
+    width: 0;
+   height: 0;
+   opacity: 1;
+  }
+  75%{
+    width: 300px;
+   height: 0;
+   opacity: 1;
+  }
+  100%{
+    width: 300px;
+   height: 508px;
+   opacity: 1;
+  }
+}
+.spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-top: 20px;
+  border-radius: 50%;
+  border: 5px solid rgba(225, 225, 225,0.1);
+  border-top-color: white;
+  border-left-color: white;
+  animation: spin 1s 4 linear;
+}
+@keyframes spin{
+ from{
+   rotate: 0deg;
+ }
+  to{
+    rotate: 360deg;
+  }
+}
+.box{
+  display:block;
+  position: relative;
+  max-width: 100%;
+  margin-bottom:30px ;
+  margin-left:20px;
+  margin-right: 20px;
+  width: 300px; 
+  height: 510px;
+  background:#1a1a1f;
+  overflow: hidden;
+	animation: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	box-shadow: 0 0 5px #1a1a1f,0 0 25px #1a1a1f,0 0 50px #1a1a1f,0 0 200px #1a1a1f;
+}
+.box:hover{
+  background: white;
+  box-shadow: 0 0 5px white,0 0 25px white,0 0 50px white,0 0 200px white;
+}
+.box:hover .conteudo{
+  color: #1a1a1f;
+}
+@keyframes scale-in-ver-top {
+  0% {
+    transform: scaleY(0);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+}
+.box span{
+  display: block;
+  position: absolute;
+  transition: all 90s;
+}
+.box span:nth-child(1){
+  top: 0;
+  left: -100%;
+ width: 100%;
+ height: 5px;
+ background:linear-gradient(90deg,transparent,white);
+ animation: animacao1 2s linear infinite; 
+ animation-delay: 0s;
+}
+@keyframes animacao1{
+  0%{
+    left:-100%;
+  }
+  50%,100%{
+    left: 100%;
+  }
+}
+ .box span:nth-child(3){
+  bottom: 0;
+  right: -100%;
+ width: 100%;
+ height: 5px;
+ background:linear-gradient(270deg,transparent,white);
+ animation: animacao3 2s linear infinite; 
+ animation-delay: 1s;
+}
+@keyframes animacao3{
+  0%{
+    right:-100%;
+  }
+  50%,100%{
+    right: 100%; 
+  }
+}
+ .box span:nth-child(2){
+  top: -100%;
+  right: 0;
+ width: 5px;
+ height: 100%;
+ background:linear-gradient(270deg,transparent,white);
+ animation: animacao2 2s linear infinite; 
+ animation-delay: 0.5s;
+}
+@keyframes animacao2{
+  0%{
+    top:-100%;
+  }
+  50%,100%{
+    top: 100%; 
+  }
+}
+.box span:nth-child(4){
+  bottom: -100%;
+  left: 0;
+ width: 5px;
+ height: 100%;
+ background:linear-gradient(360deg,transparent,white);
+ animation: animacao4 2s linear infinite; 
+ animation-delay: 1.5s;
+}
+@keyframes animacao4{
+  0%{
+    bottom:-100%;
+  }
+  50%,100%{
+    bottom: 100%; 
+  }
+}
+img{
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 100%;
+	animation: puff-in-top 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+@keyframes puff-in-top {
+  0% {
+    transform: scale(2);
+    transform-origin: 50% 0%;
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 50% 0%;
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+.conteudo{
+  position: relative;
+  display: block;
+  text-align:justify;
+  color:white;
+  padding: 5px;
+  font-size: 18px;
+  overflow: hidden;
+}
+.conteudo h2{
+  text-align:center;
+}
+.section{
+  display: none;
+  overflow: hidden;
+}
+section{
+  display: grid;
+  align-items: center;
+  height: 270px; 
+  margin-bottom: 90px;
+}
+.hidden {
+  color:white;
+  opacity: 0;
+  margin: 0 10px;
+  filter: blur(15px);
+  transition: all 1s;
+  transform: translateX(100%);
+}
+.show {
+  color: white;
+  opacity: 1;
+  filter: blur(0px);
+  transition: all 0.5s;
+  transform: translateX(0%);
+}
+.acrescimos{
+  width: 100%;
+  height: 400px;
+  text-align: left;
+  background: black;
+  border: 2px solid white;
+  color: white;
+  margin-bottom: 20px;
+}
+.acrescimos h1{
+  text-align: center;
+}
